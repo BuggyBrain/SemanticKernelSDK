@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "GFtWgfcQEQw=",
+  "dgSpecHash": "pRUS3Fq5Gxc=",
   "success": true,
   "projectFilePath": "/Users/abhinav/CodeRepo/GitHub/SemanticKernelSDK/SemanticKernelSDK/SemanticKernelSDK_Console/SemanticKernelSDK_Console.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,7 @@
     "/Users/abhinav/.nuget/packages/jsonschema.net.generation/3.5.1/jsonschema.net.generation.3.5.1.nupkg.sha512",
     "/Users/abhinav/.nuget/packages/microsoft.bcl.asyncinterfaces/8.0.0/microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
     "/Users/abhinav/.nuget/packages/microsoft.bcl.hashcode/1.1.0/microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
+    "/Users/abhinav/.nuget/packages/microsoft.bcl.timeprovider/8.0.0/microsoft.bcl.timeprovider.8.0.0.nupkg.sha512",
     "/Users/abhinav/.nuget/packages/microsoft.extensions.configuration/8.0.0/microsoft.extensions.configuration.8.0.0.nupkg.sha512",
     "/Users/abhinav/.nuget/packages/microsoft.extensions.configuration.abstractions/8.0.0/microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "/Users/abhinav/.nuget/packages/microsoft.extensions.configuration.binder/8.0.2/microsoft.extensions.configuration.binder.8.0.2.nupkg.sha512",
@@ -30,6 +31,7 @@
     "/Users/abhinav/.nuget/packages/microsoft.semantickernel.abstractions/1.2.0/microsoft.semantickernel.abstractions.1.2.0.nupkg.sha512",
     "/Users/abhinav/.nuget/packages/microsoft.semantickernel.connectors.openai/1.2.0/microsoft.semantickernel.connectors.openai.1.2.0.nupkg.sha512",
     "/Users/abhinav/.nuget/packages/microsoft.semantickernel.core/1.2.0/microsoft.semantickernel.core.1.2.0.nupkg.sha512",
+    "/Users/abhinav/.nuget/packages/microsoft.semantickernel.plugins.core/1.2.0-alpha/microsoft.semantickernel.plugins.core.1.2.0-alpha.nupkg.sha512",
     "/Users/abhinav/.nuget/packages/system.diagnostics.diagnosticsource/8.0.0/system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512",
     "/Users/abhinav/.nuget/packages/system.memory.data/1.0.2/system.memory.data.1.0.2.nupkg.sha512",
     "/Users/abhinav/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",

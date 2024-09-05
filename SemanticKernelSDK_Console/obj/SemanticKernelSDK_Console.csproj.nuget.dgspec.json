@@ -59,6 +59,10 @@
             "Microsoft.SemanticKernel": {
               "target": "Package",
               "version": "[1.2.0, )"
+            },
+            "Microsoft.SemanticKernel.Plugins.Core": {
+              "target": "Package",
+              "version": "[1.2.0-alpha, )"
             }
           },
           "imports": [
