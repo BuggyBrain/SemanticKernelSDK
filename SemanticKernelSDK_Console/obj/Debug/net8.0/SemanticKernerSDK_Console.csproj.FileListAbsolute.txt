@@ -1,0 +1,15 @@
+C:\Repo\Github\SemanticKernelSDK\SemanticKernerSDK_Console\bin\Debug\net8.0\SemanticKernerSDK_Console.exe
+C:\Repo\Github\SemanticKernelSDK\SemanticKernerSDK_Console\bin\Debug\net8.0\SemanticKernerSDK_Console.deps.json
+C:\Repo\Github\SemanticKernelSDK\SemanticKernerSDK_Console\bin\Debug\net8.0\SemanticKernerSDK_Console.runtimeconfig.json
+C:\Repo\Github\SemanticKernelSDK\SemanticKernerSDK_Console\bin\Debug\net8.0\SemanticKernerSDK_Console.dll
+C:\Repo\Github\SemanticKernelSDK\SemanticKernerSDK_Console\bin\Debug\net8.0\SemanticKernerSDK_Console.pdb
+C:\Repo\Github\SemanticKernelSDK\SemanticKernerSDK_Console\obj\Debug\net8.0\SemanticKernerSDK_Console.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repo\Github\SemanticKernelSDK\SemanticKernerSDK_Console\obj\Debug\net8.0\SemanticKernerSDK_Console.AssemblyInfoInputs.cache
+C:\Repo\Github\SemanticKernelSDK\SemanticKernerSDK_Console\obj\Debug\net8.0\SemanticKernerSDK_Console.AssemblyInfo.cs
+C:\Repo\Github\SemanticKernelSDK\SemanticKernerSDK_Console\obj\Debug\net8.0\SemanticKernerSDK_Console.csproj.CoreCompileInputs.cache
+C:\Repo\Github\SemanticKernelSDK\SemanticKernerSDK_Console\obj\Debug\net8.0\SemanticKernerSDK_Console.sourcelink.json
+C:\Repo\Github\SemanticKernelSDK\SemanticKernerSDK_Console\obj\Debug\net8.0\SemanticKernerSDK_Console.dll
+C:\Repo\Github\SemanticKernelSDK\SemanticKernerSDK_Console\obj\Debug\net8.0\refint\SemanticKernerSDK_Console.dll
+C:\Repo\Github\SemanticKernelSDK\SemanticKernerSDK_Console\obj\Debug\net8.0\SemanticKernerSDK_Console.pdb
+C:\Repo\Github\SemanticKernelSDK\SemanticKernerSDK_Console\obj\Debug\net8.0\SemanticKernerSDK_Console.genruntimeconfig.cache
+C:\Repo\Github\SemanticKernelSDK\SemanticKernerSDK_Console\obj\Debug\net8.0\ref\SemanticKernerSDK_Console.dll

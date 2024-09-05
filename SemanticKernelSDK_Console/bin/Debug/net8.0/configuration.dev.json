@@ -1,0 +1,6 @@
+{
+  "deploymentName": "SemanticKernelSDK",
+  "endpoint": "https://openaisemantickernelsdk.openai.azure.com/",
+  "apiKey": "28a79eb6ebdb4db08028df9fb04ae5cd",
+  "modelId": "gpt-35-turbo-16k"
+}
