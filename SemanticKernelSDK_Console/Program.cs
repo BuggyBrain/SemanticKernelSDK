@@ -31,7 +31,7 @@ class Program
         var endpoint = configuration.GetValue<string>("endpoint");
         var apiKey = configuration.GetValue<string>("apiKey");
         var modelId = configuration.GetValue<string>("modelId");
-      
+       
         var builder = Kernel.CreateBuilder();
         
         builder.AddAzureOpenAIChatCompletion(
