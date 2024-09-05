@@ -35,25 +35,25 @@ class Program
         var modelId = configuration.GetValue<string>("modelId");
 
 
-        // /// Kernel builder - First Topic 
-        // var builder = Kernel.CreateBuilder();
+        /****************** TOPIC 1 - Semantic Kernel Builder *****************************/
+        var builder = Kernel.CreateBuilder();
 
-        // builder.AddAzureOpenAIChatCompletion(
-        //                                     deploymentName,
-        //                                     endpoint,
-        //                                     apiKey,
-        //                                     modelId);
-        // var kernel = builder.Build();
-
-
-        // /// Passing promt for response form LLM Model 
-        // var result = await kernel.InvokePromptAsync("Which is the smallest island ? ");
-        // Console.WriteLine(result);
+        builder.AddAzureOpenAIChatCompletion(
+                                            deploymentName,
+                                            endpoint,
+                                            apiKey,
+                                            modelId);
+        var kernel = builder.Build();
 
 
+        /// Passing promt for response form LLM Model 
+        var result = await kernel.InvokePromptAsync("Which is the smallest island ? ");
+        Console.WriteLine(result);
 
-        /// Plugins for Semantic Kernel- Topic Two∏∏ 
 
+        
+        /****************** TOPIC 2 - Plugins for Semantic Kernel *****************************/
+        
         /// Plugins available in Microsoft.SemanticKernel.Plugins.Core 1.2.0-alpha 
         /// ConversationSummaryPlugin - Summarizes conversation
         /// FileIOPlugin - Reads and writes to the filesystem
@@ -71,23 +71,23 @@ class Program
                                             apiKey,
                                             modelId);
 
+        ///// Topic 2 - Using built-in plugins
         /// Adding Time Plugin to Kernel 
-        // builder2.Plugins.AddFromType<TimePlugin>();
+        builder2.Plugins.AddFromType<TimePlugin>();
         var kernel2 = builder2.Build();
 
-        // var currentDay = await kernel2.InvokeAsync("TimePlugin", "DayOfWeek");
-        // Console.WriteLine(currentDay);
+        var currentDay = await kernel2.InvokeAsync("TimePlugin", "DayOfWeek");
+        Console.WriteLine(currentDay);
 
 
-        /// Adding Conversation SUmmary Plugin to Kernel 
-        
+        /// Adding Conversation Summary Plugin to Kernel 
+
         //// THERE IS AN EXISTING ISSUE IN THE PLUGIN WHERE NO ACTION ITEMS ARE RETURNED EVEN AFTER TRYING MULTIPLE INPUTS
         //// RESPONSE IS 
         //// {
         //// "actionItems": []
         //// }
         //// GITHUB ISSUE https://github.com/microsoft/semantic-kernel/issues/4843
-        
 
         builder2.Plugins.AddFromType<ConversationSummaryPlugin>();
         kernel2 = builder2.Build();
@@ -99,6 +99,29 @@ class Program
             "ConversationSummaryPlugin",
             "GetConversationActionItems",
             new() { { "input", input } });
+
+        Console.WriteLine(result2);
+
+        ///// Topic 2 - Optimizing Language Model Prompt 
+        string history = @"In the heart of my bustling kitchen, I have embraced 
+                        the challenge of satisfying my family's diverse taste buds and 
+                        navigating their unique tastes. With a mix of picky eaters and 
+                        allergies, my culinary journey revolves around exploring a plethora 
+                        of vegetarian recipes.
+
+                        One of my kids is a picky eater with an aversion to anything green, 
+                        while another has a peanut allergy that adds an extra layer of complexity 
+                        to meal planning. Armed with creativity and a passion for wholesome 
+                        cooking, I've embarked on a flavorful adventure, discovering plant-based 
+                        dishes that not only please the picky palates but are also heathy and 
+                        delicious.";
+
+        string prompt = @"This is some information about the user's background: 
+                        {{$history}}
+                        Given this user's background, provide a list of relevant recipes.";
+
+        result2 = await kernel2.InvokePromptAsync(prompt,
+            new KernelArguments() { { "history", history } });
 
         Console.WriteLine(result2);
 
