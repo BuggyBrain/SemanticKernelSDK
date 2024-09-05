@@ -1,3 +1,4 @@
 {
-    "dotnet.defaultSolution": "SemanticKernerSDK_Console.sln"
+    "dotnet.defaultSolution": "SemanticKernerSDK_Console.sln",
+    "FSharp.suggestGitignore": false
 }
