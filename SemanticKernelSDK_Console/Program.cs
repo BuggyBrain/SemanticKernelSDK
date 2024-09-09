@@ -105,7 +105,7 @@ class Program
         var kernel2 = builder2.Build();
 
         var currentDay = await kernel2.InvokeAsync("TimePlugin", "DayOfWeek");
-        Console.WriteLine("Topic 2 Time Plugin says, Today is  Awesome {currentDay}", currentDay);
+        Console.WriteLine("Topic 2 Time Plugin says, Today is  Awesome {{$currentDay}}");
 
 
         /// Adding Conversation Summary Plugin to Kernel 
