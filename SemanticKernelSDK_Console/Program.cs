@@ -104,53 +104,124 @@ class Program
         builder2.Plugins.AddFromType<TimePlugin>();
         var kernel2 = builder2.Build();
 
-        var currentDay = await kernel2.InvokeAsync("TimePlugin", "DayOfWeek");
-        Console.WriteLine("Topic 2 Time Plugin says, Today is  Awesome {{$currentDay}}");
+        Console.WriteLine(@"Enter 1,2,3,4,5 for:
+            1. Time Plugin 
+            2. Conversation Summary Plugin
+            3. Optimizing Language Model Prompt
+            4. Translation
+            5. Personas in Prompts
+                    ");
+        var topicToRun = Console.ReadLine();
 
+        switch (topicToRun)
+        {
+            case "1":
+                var currentDay = await kernel2.InvokeAsync("TimePlugin", "DayOfWeek");
+                Console.WriteLine("Topic 2 Time Plugin says, Today is  Awesome {{$currentDay}}");
+                break;
+            case "2":
 
-        /// Adding Conversation Summary Plugin to Kernel 
+                /// Adding Conversation Summary Plugin to Kernel 
 
-        //// THERE IS AN EXISTING ISSUE IN THE PLUGIN WHERE NO ACTION ITEMS ARE RETURNED EVEN AFTER TRYING MULTIPLE INPUTS
-        //// RESPONSE IS 
-        //// {
-        //// "actionItems": []
-        //// }
-        //// GITHUB ISSUE https://github.com/microsoft/semantic-kernel/issues/4843
+                //// THERE IS AN EXISTING ISSUE IN THE PLUGIN WHERE NO ACTION ITEMS ARE RETURNED EVEN AFTER TRYING MULTIPLE INPUTS
+                //// RESPONSE IS 
+                //// {
+                //// "actionItems": []
+                //// }
+                //// GITHUB ISSUE https://github.com/microsoft/semantic-kernel/issues/4843
 
-        builder2.Plugins.AddFromType<ConversationSummaryPlugin>();
-        kernel2 = builder2.Build();
+                builder2.Plugins.AddFromType<ConversationSummaryPlugin>();
+                kernel2 = builder2.Build();
 
-        string input = @"I'm a vegan in search of new recipes. I love spicy food! 
+                string input = @"I'm a vegan in search of new recipes. I love spicy food! 
                         Can you give me a list of breakfast recipes that are vegan friendly?";
 
-        var result2 = await kernel2.InvokeAsync(
-            "ConversationSummaryPlugin",
-            "GetConversationActionItems",
-            new() { { "input", input } });
+                var result2 = await kernel2.InvokeAsync(
+                    "ConversationSummaryPlugin",
+                    "GetConversationActionItems",
+                    new() { { "input", input } });
 
-        Console.WriteLine(result2);
+                Console.WriteLine(result2);
 
-        ///// Topic 2 - Optimizing Language Model Prompt 
-        string history = @"In the heart of my bustling kitchen, I have embraced 
+                break;
+            case "3":  ///// Topic 2 - Optimizing Language Model Prompt 
+
+                builder2.Plugins.AddFromType<ConversationSummaryPlugin>();
+                kernel2 = builder2.Build();
+
+                string history = @"In the heart of my bustling kitchen, I have embraced 
                         the challenge of satisfying my family's diverse taste buds and 
                         navigating their unique tastes. With a mix of picky eaters and 
                         allergies, my culinary journey revolves around exploring a plethora 
                         of vegetarian recipes.";
 
-        // One of my kids is a picky eater with an aversion to anything green, 
-        // while another has a peanut allergy that adds an extra layer of complexity 
-        // to meal planning. Armed with creativity and a passion for wholesome 
-        // cooking, I've embarked on a flavorful adventure, discovering plant-based 
-        // dishes that not only please the picky palates but are also heathy and 
-        // delicious.";
+                // One of my kids is a picky eater with an aversion to anything green, 
+                // while another has a peanut allergy that adds an extra layer of complexity 
+                // to meal planning. Armed with creativity and a passion for wholesome 
+                // cooking, I've embarked on a flavorful adventure, discovering plant-based 
+                // dishes that not only please the picky palates but are also heathy and 
+                // delicious.";
 
-        string prompt = @"This is some information about the user's background: 
+                string prompt = @"This is some information about the user's background: 
                         {{$history}}
                         Given this user's background, provide a list of relevant recipes.";
 
-        result2 = await kernel2.InvokePromptAsync(prompt,
-            new KernelArguments() { { "history", history } });
+                result2 = await kernel2.InvokePromptAsync(prompt,
+                    new KernelArguments() { { "history", history } });
 
-        Console.WriteLine(result2);
+                Console.WriteLine(result2);
+                break;
+            case "4": //// Write your own prompt. 
+                builder2.Plugins.AddFromType<ConversationSummaryPlugin>();
+                kernel2 = builder2.Build();
+                string language = "French";
+                history = @"I'm traveling with my kids and one of them 
+                        has a peanut allergy.";
+
+                prompt = @$"Consider the traveler's background:
+                    ${history}
+
+                    Create a list of helpful phrases and words in 
+                    ${language} a traveler would find useful.
+
+                    Group phrases by category. Include common direction 
+                    words. Display the phrases in the following format: 
+                    Hello - Ciao [chow]";
+
+                var result = await kernel2.InvokePromptAsync(prompt);
+                Console.WriteLine(result);
+                break;
+
+            case "5": //// Use Personas in Prompts. 
+                builder2.Plugins.AddFromType<ConversationSummaryPlugin>();
+                kernel2 = builder2.Build();
+
+                language = "French";
+                history = @"I'm traveling with my kids and one of them has a peanut allergy.";
+
+                // Assign a persona to the prompt
+                prompt = @$"
+                        You are a travel assistant. You have no idea of what you are doing and when some one asks for your help you start talking about weird conspiracy theories about that place and provide no helpful response.  
+                        Consider the traveler's background:
+                        ${history}
+
+                        Create a list of helpful phrases and words in ${language} a traveler would find useful.
+
+                        Group phrases by category. Include common direction words. 
+                        Display the phrases in the following format: 
+                        Hello - Ciao [chow]
+
+                        Begin with: 'Here are some phrases in ${language} you may find helpful:' 
+                        and end with: 'I hope this helps you on your trip!'";
+
+                result = await kernel2.InvokePromptAsync(prompt);
+                Console.WriteLine(result);
+                break;
+            default:
+                break;
+        }
+
+
+
     }
 }
